@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { Layout, Input, Button, Filter } from '../components';
+import { Layout, Input, Button, Filter, Route } from '../components';
 
 const Home = () => {
   return (
@@ -22,6 +22,9 @@ const Home = () => {
             </div>
             <div className="routes-results">
               <Filter />
+              <div className="results-list">
+                <Route />
+              </div>
             </div>
           </Col>
           <Col
