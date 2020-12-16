@@ -42,6 +42,10 @@ Developtment branch.
 
 Creating the initial setup, installing libraries, adding a precommiter, eslint and prettier
 
+### feature/layout
+
+Creating the base layout with `react-bootstrap` and adding google maps component.
+
 ## Styling
 
 Used `eslint`,it is going to tell you if you’ve imported something and not used it, if your function could be short-handed, and loads of other little gotchas that you can fully configure.
