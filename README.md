@@ -62,7 +62,7 @@ Use to use SSR (server side rendering features), this can improve the SEO.
 
 ### React-bootstrap
 
-I used React-bootstrap to use components instead of classes (Bulma).
+I used `react-bootstrap` to use components instead of classes (Bulma).
 
 ### husky
 

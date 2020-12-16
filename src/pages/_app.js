@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 /**
  * This is the main app that has the redux and theme provider
