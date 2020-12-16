@@ -30,12 +30,16 @@ yarn test:coverage
 
 The branching model used is gitflow, this helps a lot with collaboration and scaling the development team.
 
-### master 
+### master
+
 deployments to production
-### develop 
+
+### develop
+
 Developtment branch.
 
-### feature/initial_setup 
+### feature/initial_setup
+
 Creating the initial setup, installing libraries, adding a precommiter, eslint and prettier
 
 ## Styling
@@ -48,24 +52,26 @@ Used `prettier`, it is an opinionated code formatter, this will assure that the 
 
 These are ones of the major libraries I used to accomplish this test.
 
-### Next.js 
+### Next.js
 
- Use to use SSR (server side rendering features), this can improve the SEO.
+Use to use SSR (server side rendering features), this can improve the SEO.
 
 ### React-bootstrap
 
-I used React-bootstrap to use components instead of classes (Bulma). 
+I used React-bootstrap to use components instead of classes (Bulma).
 
-### husky 
+### husky
 
- precommit, ensure same slyting and no javascript errors before commit
-### eslint 
+precommit, ensure same slyting and no javascript errors before commit
 
- linter tool to find and fix problems in javascript code.
-### prettier 
+### eslint
+
+linter tool to find and fix problems in javascript code.
+
+### prettier
 
 to share the same code styling
 
-### PropTypes 
+### PropTypes
 
- Used for component documentaiton
+Used for component documentaiton
