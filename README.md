@@ -1,30 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+First, install libraries (I was using Node 12.18.0):
 
 ```bash
-npm run dev
-# or
+yarn
+```
+
+Then, run the development server:
+
+```bash
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+To run the tests:
 
-## Learn More
+```bash
+yarn test
+```
 
-To learn more about Next.js, take a look at the following resources:
+To run the test coverage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+yarn test:coverage
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Workflow
 
-## Deploy on Vercel
+The branching model used is gitflow, this helps a lot with collaboration and scaling the development team.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### master
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+deployments to production
+
+### develop
+
+Developtment branch.
+
+### feature/initial_setup
+
+Creating the initial setup, installing libraries, adding a precommiter, eslint and prettier
+
+## Styling
+
+Used `eslint`,it is going to tell you if you’ve imported something and not used it, if your function could be short-handed, and loads of other little gotchas that you can fully configure.
+
+Used `prettier`, it is an opinionated code formatter, this will assure that the code styling is the same.
+
+## Libraries Used
+
+These are ones of the major libraries I used to accomplish this test.
+
+### Next.js
+
+Use to use SSR (server side rendering features), this can improve the SEO.
+
+### React-bootstrap
+
+I used React-bootstrap to use components instead of classes (Bulma).
+
+### husky
+
+precommit, ensure same slyting and no javascript errors before commit
+
+### eslint
+
+linter tool to find and fix problems in javascript code.
+
+### prettier
+
+to share the same code styling
+
+### PropTypes
+
+Used for component documentaiton
