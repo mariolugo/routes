@@ -5,24 +5,31 @@ import Col from 'react-bootstrap/Col';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Layout, Input, Button, Filter, Route, Map } from '../components';
-import { fetchAddress, selectAddress, getOrigin, getDestination } from '../redux/modules/home';
+import {
+  fetchAddress,
+  selectAddress,
+  getOrigin,
+  getDestination,
+  startCalculate,
+  finishCalculate,
+  getDoSearch,
+  getRoutes,
+} from '../redux/modules/home';
 
 const Home = () => {
   const [originAddress, setOriginAddress] = useState({
     address: '',
-    location: '',
+    location: {},
   });
   const [destinationAddress, setDestinationAddress] = useState({
     address: '',
-    location: '',
+    location: {},
   });
   const dispatch = useDispatch();
   const origin = useSelector(getOrigin);
   const destination = useSelector(getDestination);
-
-  console.log('origin', origin);
-  console.log('originAddress', originAddress);
-  console.log('destinationAddress', destinationAddress);
+  const doSearch = useSelector(getDoSearch);
+  const routesArr = useSelector(getRoutes);
 
   const searchAddress = (field, query) => {
     dispatch(fetchAddress(field, query));
@@ -49,6 +56,14 @@ const Home = () => {
       );
     }
   }, [destinationAddress]);
+
+  const calculateAndDisplayRoute = () => {
+    dispatch(startCalculate());
+  };
+
+  const finishCalculateRoute = (routes) => {
+    dispatch(finishCalculate(routes));
+  };
 
   return (
     <div>
@@ -81,12 +96,26 @@ const Home = () => {
                 loading={destination.fetching}
                 setAddress={setDestinationAddress}
               />
-              <Button title="BUSCAR RUTA" disabled={isButtonDisabled()} />
+              <Button
+                title="BUSCAR RUTA"
+                disabled={isButtonDisabled()}
+                onClick={calculateAndDisplayRoute}
+              />
             </div>
             <div className="routes-results">
               <Filter />
               <div className="results-list">
-                <Route />
+                {routesArr.length > 0 &&
+                  routesArr.map((route) => {
+                    return (
+                      <Route
+                        key={route.summary}
+                        origin={originAddress}
+                        destination={destinationAddress}
+                        info={route}
+                      />
+                    );
+                  })}
               </div>
             </div>
           </Col>
@@ -99,7 +128,13 @@ const Home = () => {
               overflow: 'hidden',
               padding: 0,
             }}>
-            <Map zoom={12} />
+            <Map
+              zoom={12}
+              doSearch={doSearch}
+              origin={origin}
+              destination={destination}
+              finishCalculate={finishCalculateRoute}
+            />
           </Col>
         </Row>
       </Layout>

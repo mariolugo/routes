@@ -19,4 +19,5 @@ export const HomeData = Record({
   },
   highlight: 0,
   orderBy: 'KM',
+  doSearch: false,
 });

@@ -12,6 +12,9 @@ const FETCH_ADDRESS = 'modules/home/FETCH_ADDRESS';
 const FETCH_ADDRESS_SUCCESS = 'modules/home/FETCH_ADDRESS_SUCCESS';
 const FETCH_ADDRESS_ERROR = 'modules/home/FETCH_ADDRESS_ERROR';
 const SELECT_ADDRESS = 'modules/home/SELECT_ADDRESS';
+const START_CALCULATE = 'modules/home/START_CALCULATE';
+const FINISH_CALCULATE = 'modules/home/FINISH_CALCULATE';
+
 // STATE IMMUTABLE HELPERS
 
 /**
@@ -72,6 +75,18 @@ const onSelectAddress = (state, field, address, location) =>
     },
   });
 
+const onStartCalculate = (state) =>
+  state.merge({
+    ...state,
+    doSearch: true,
+  });
+
+const onFinishCalculate = (state, routes) =>
+  state.merge({
+    ...state,
+    doSearch: false,
+    routes,
+  });
 // MAIN REDUCERS
 
 /**
@@ -80,7 +95,10 @@ const onSelectAddress = (state, field, address, location) =>
  * @param {*} action
  */
 
-export default function reducer(state = initialState, { type, location, address, field, payload }) {
+export default function reducer(
+  state = initialState,
+  { type, routes, location, address, field, payload },
+) {
   switch (type) {
     case FETCH_ADDRESS:
       return onFetch(state, field);
@@ -93,6 +111,12 @@ export default function reducer(state = initialState, { type, location, address,
 
     case SELECT_ADDRESS:
       return onSelectAddress(state, field, address, location);
+
+    case START_CALCULATE:
+      return onStartCalculate(state);
+
+    case FINISH_CALCULATE:
+      return onFinishCalculate(state, routes);
     default:
       return state;
   }
@@ -127,11 +151,26 @@ export const fetchAddressError = (error) => ({
   error,
 });
 
+/**
+ *
+ * @param {*} field
+ * @param {*} address
+ * @param {*} location
+ */
 export const selectAddress = (field, address, location) => ({
   type: SELECT_ADDRESS,
   field,
   address,
   location,
+});
+
+export const startCalculate = () => ({
+  type: START_CALCULATE,
+});
+
+export const finishCalculate = (routes) => ({
+  type: FINISH_CALCULATE,
+  routes,
 });
 
 //SAGAS
@@ -142,14 +181,12 @@ export const selectAddress = (field, address, location) => ({
  * In here we call the api and dispatch either a succes or error action
  */
 export function* getAddressWorker(api, action) {
-  console.log('action', action);
   const url = `json?input=${encodeURIComponent(
     action.query,
   )}&inputtype=textquery&fields=formatted_address,geometry&key=${GOOGLE_MAPS_KEY}`;
 
   try {
     const homesResponse = yield call(api.get, url);
-    console.log('DATA', homesResponse.data);
     const successAction = fetchAddressSuccess({
       data: homesResponse.data,
       field: action.field,
@@ -185,3 +222,4 @@ export const getRoutes = (state) => state.home.get('routes');
 export const getOrigin = (state) => state.home.get('origin');
 export const getDestination = (state) => state.home.get('destination');
 export const getOrderBy = (state) => state.home.get('orderBy');
+export const getDoSearch = (state) => state.home.get('doSearch');
