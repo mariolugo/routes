@@ -18,18 +18,6 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-To run the tests:
-
-```bash
-yarn test
-```
-
-To run the test coverage
-
-```bash
-yarn test:coverage
-```
-
 ## Workflow
 
 The branching model used is gitflow, this helps a lot with collaboration and scaling the development team.
