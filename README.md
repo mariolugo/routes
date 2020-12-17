@@ -1,3 +1,7 @@
+## Deployment
+
+https://routes-5i2rmsdxk.vercel.app/
+
 ## Getting Started
 
 First, install libraries (I was using Node 12.18.0):
@@ -100,3 +104,50 @@ I used the saga middleware and an api object, this can be used to handle all the
 ## Google Maps
 
 I have not used a map library. I think you can have a better control of the map if you are not using a library. I'm importing on `src/pages/_app.js` the script tag with the google maps url.
+
+### Immutable JS
+
+This is designed to overcome the issues with immutability with javascript. This provides all the benefits of immutability with great performance. The immutable model is on `src/models/`
+
+## Structure overview
+
+```
+├── README.md
+├── src
+├── pages
+│   │  ├── _app.js
+│   │  └── index.js
+│   ├── components
+│   │   └── Button
+│   │   │   └── index.js
+│   │   └── Filter
+│   │   │   └── index.js
+│   │   └── Input
+│   │   │   └── index.js
+│   │   └── Layout
+│   │   │   └── index.js
+│   │   └── Map
+│   │   │   └── index.js
+│   │   └── NavBar
+│   │   │   └── index.js
+│   │   └── Route
+│   │   │   └── index.js
+│   │   └── index.js
+│   ├── redux
+│   │   │   └── modules
+│   │   │   └── home
+│   │   │   │   └── index.js
+│   │   └── store.js
+│   │   └── api.js
+│   ├── models
+│   │   └── Home.js
+│   │   └── index.js
+│   ├── constants
+│   │   └── index.js
+└── yarn.lock
+├── package.json
+├── .eslintrc.json
+├── .prettierrc
+├── jsconfig.json
+```
+
