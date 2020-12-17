@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import { Provider } from 'react-redux';
 import { GOOGLE_MAPS_API_URL } from '../constants';
-
+import { useStore } from '../redux/store';
 import '../styles/global.css';
 
 /**
@@ -10,12 +11,15 @@ import '../styles/global.css';
  * @param {*} {pageProps} pages properties.
  */
 const App = ({ Component, pageProps }) => {
+  const store = useStore(pageProps.initialReduxState);
   return (
     <>
       <Head>
         <script type="text/javascript" src={GOOGLE_MAPS_API_URL} />
       </Head>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 };

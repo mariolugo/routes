@@ -1,20 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Form from 'react-bootstrap/Form';
 
 export const Input = ({ label, value, placeholder, name }) => {
   return (
-    <div className="form-group">
-      <label className="form-label" htmlFor={name}>
-        {label}
-      </label>
-      <input
-        type="text"
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        className="form-control"
-      />
-    </div>
+    <Form.Group controlId={`routeForm.${name}`}>
+      <Form.Label>{label}</Form.Label>
+      <Form.Control type="text" placeholder={placeholder} name={name} value={value} />
+    </Form.Group>
   );
 };
 
