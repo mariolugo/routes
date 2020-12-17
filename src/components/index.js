@@ -3,3 +3,4 @@ export * from './Input';
 export * from './Button';
 export * from './Filter';
 export * from './Route';
+export * from './Map';

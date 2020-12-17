@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { Layout, Input, Button, Filter, Route } from '../components';
+import { Layout, Input, Button, Filter, Route, Map } from '../components';
 
 const Home = () => {
   return (
@@ -34,9 +34,9 @@ const Home = () => {
               backgroundColor: 'black',
               height: 'calc(100vh - 56px)',
               overflow: 'hidden',
+              padding: 0,
             }}>
-            {' '}
-            Mapa
+            <Map zoom={12} />
           </Col>
         </Row>
       </Layout>

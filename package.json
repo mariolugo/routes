@@ -12,6 +12,7 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.0.2",
     "bootstrap": "^4.5.3",
     "next": "10.0.3",
     "prop-types": "^15.7.2",
