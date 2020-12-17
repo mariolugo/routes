@@ -42,3 +42,7 @@ p.route-coordinates {
 .directions-row {
   margin-bottom: 10px;
 }
+
+.route-card {
+  margin-bottom: 15px;
+}
