@@ -44,7 +44,11 @@ Creating the initial setup, installing libraries, adding a precommiter, eslint a
 
 ### feature/layout
 
-Creating the base layout with `react-bootstrap` and adding google maps component.
+Creating the base layout with `react-bootstrap` and adding google maps component with routes.
+
+### feature/redux
+
+Adding redux functionality, immutability and redux sagas.
 
 ## Styling
 
@@ -62,7 +66,7 @@ Use to use SSR (server side rendering features), this can improve the SEO.
 
 ### React-bootstrap
 
-I used `react-bootstrap` to use components instead of classes (Bulma).
+I used `react-bootstrap`\ to use components instead of classes (Bulma).
 
 ### husky
 
@@ -79,3 +83,19 @@ to share the same code styling
 ### PropTypes
 
 Used for component documentaiton
+
+### Redux/Redux-Saga 
+
+ State management and midleware for side effects
+### Axios 
+
+ Promise based HTTP client
+
+## Redux Pattern
+
+I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-modular-redux), that collocates actions, action types and reducers.
+I used the saga middleware and an api object, this can be used to handle all the HTTP methods in one place. Also, you can add headers and tokens to that api, and it will be automatically used on all the future sagas.
+
+## Google Maps
+
+I have not used a map library. I think you can have a better control of the map if you are not using a library. I'm importing on `src/pages/_app.js` the script tag with the google maps url.
