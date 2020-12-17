@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { GOOGLE_MAPS_API_URL } from '../constants';
 import { useStore } from '../redux/store';
 import '../styles/global.css';
+import 'react-bootstrap-typeahead/css/Typeahead.css';
 
 /**
  * This is the main app that has the redux and theme provider

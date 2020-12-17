@@ -9,11 +9,12 @@ const getClient = () => {
   const apiUrl = SEARCH_PLACE_API;
 
   const config = {
-    baseURL: apiUrl,
+    baseURL: 'https://cors-anywhere.herokuapp.com/' + apiUrl,
     timeout: 15000,
     headers: {
       'Content-Type': 'application/json',
     },
+    metod: 'get',
   };
 
   const axiosInstance = axios.create(config);

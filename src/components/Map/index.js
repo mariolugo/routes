@@ -42,7 +42,6 @@ export const Map = ({
   };
 
   const drawLine = (path, options) => {
-    console.log('options', options, path);
     const line = new google.maps.Polyline({
       path,
       ...options,
@@ -61,12 +60,8 @@ export const Map = ({
     };
     directionsService.route(request, (result, status) => {
       if (status == 'OK') {
-        console.log('result', result);
-
         const routes = result.routes;
-        // routes.forEach((route, i) => {
-        //   displayRoute(route, i);
-        // });
+
         // draw the lines in reverse orde, so the first one is on top (z-index)// in reverse
         for (let i = routes.length - 1; i >= 0; i--) {
           const isFirst = i == 0;
@@ -76,12 +71,8 @@ export const Map = ({
             strokeOpacity: 1.0,
           };
 
-          console.log('routes', routes);
-
           const line = drawLine(routes[i].overview_path, options);
           polylines.push(line);
-
-          console.log('line', line);
 
           bounds = line.getBounds(bounds);
         }

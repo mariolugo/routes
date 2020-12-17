@@ -1,21 +1,21 @@
-import { Record, Map } from 'immutable';
+import { Record } from 'immutable';
 
 // Since we are using immutable, we are going to create the home record,
 // used first on the initial state and then on the reuxers
 
 export const HomeData = Record({
-  routes: new Map(),
+  routes: [],
   origin: {
     selected: null,
     coordinates: null,
     fetching: false,
-    results: new Map(),
+    results: [],
   },
   destination: {
     selected: null,
     coordinates: null,
     fetching: false,
-    results: new Map(),
+    results: [],
   },
   highlight: 0,
   orderBy: 'KM',

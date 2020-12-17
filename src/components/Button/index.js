@@ -2,9 +2,9 @@ import React from 'react';
 import BootstrapButton from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 
-export const Button = ({ title }) => {
+export const Button = ({ title, disabled }) => {
   return (
-    <BootstrapButton variant="primary" size="lg" block>
+    <BootstrapButton variant="primary" size="lg" block disabled={disabled}>
       {title}
     </BootstrapButton>
   );
@@ -12,4 +12,5 @@ export const Button = ({ title }) => {
 
 Button.propTypes = {
   title: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
 };
