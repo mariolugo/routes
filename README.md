@@ -93,6 +93,10 @@ I used the saga middleware and an api object, this can be used to handle all the
 
 I have not used a map library. I think you can have a better control of the map if you are not using a library. I'm importing on `src/pages/_app.js` the script tag with the google maps url.
 
+The autocomplete is made from scract, eveytime the user types, will make an asynchronous fetch, using redux-saga middleware.
+
+To make the routes I'm using Polylines
+
 ### Immutable JS
 
 This is designed to overcome the issues with immutability with javascript. This provides all the benefits of immutability with great performance. The immutable model is on `src/models/`
