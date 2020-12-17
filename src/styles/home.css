@@ -1,0 +1,44 @@
+.routes-form {
+  padding-top: 10px;
+}
+
+label.form-label {
+  font-weight: bolder;
+}
+
+.routes-results {
+  margin-top: 50px;
+}
+
+.results-list {
+  margin-top: 50px;
+}
+
+.direction-icon {
+  width: 100%;
+  height: 100px;
+}
+
+p.route-direction {
+  font-size: 15px;
+  margin: 0;
+}
+
+p.route-info {
+  font-size: 14px;
+  margin: 0;
+}
+
+p.route-info-text {
+  margin: 0;
+  font-size: 12px;
+}
+
+p.route-coordinates {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+.directions-row {
+  margin-bottom: 10px;
+}
