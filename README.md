@@ -84,12 +84,13 @@ to share the same code styling
 
 Used for component documentaiton
 
-### Redux/Redux-Saga 
+### Redux/Redux-Saga
 
- State management and midleware for side effects
-### Axios 
+State management and midleware for side effects
 
- Promise based HTTP client
+### Axios
+
+Promise based HTTP client
 
 ## Redux Pattern
 
